@@ -8,4 +8,4 @@ El pdf con todos los enunciados se puede ver [aquí](https://github.com/aleexnag
 
 ## Compilación y Ejecución
 Para compilar los programas se dispone de un Makefile, basta con poner `make` en la terminal dentro del direcciorio donde se encuentren los archivos.
-Para ejecutar los programas desde una terminal BASH deberan llamarse junto a un fichdro de texto `.txt`. De este modo por ejemplo para ejecutar el programa maxmin.c correctamente obtenemos: `./invertir numeros.txt`
+Para ejecutar los programas desde una terminal BASH deberan llamarse junto a un fichero de texto `.txt`. De este modo por ejemplo para ejecutar el programa maxmin.c correctamente obtenemos: `./invertir numeros.txt`
