@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         exit(71);
     for (i = 0; i < m; ++i)
     {
-        matriz[i] = (long int *)calloc(p, sizeof(int));
+        matriz[i] = (long int *)calloc(p, sizeof(int *));
         if (matriz == NULL)
             exit(71);
     }
