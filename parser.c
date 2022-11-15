@@ -9,7 +9,7 @@ int parser(FILE *file)
     char linea[MaxLinea];
     char linea2[MaxLinea];
     char *campos[MaxCampos];
-    char *palabras[MaxLinea];
+    char *palabras[MaxCampos];
     char *tok;
     char c = '\n';
 
