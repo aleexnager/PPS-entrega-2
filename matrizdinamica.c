@@ -37,9 +37,15 @@ int main(int argc, char *argv[])
     /*prints*/
     for (i = 0; i < m; ++i)
     {
-        for (j = 0; j < p; ++j)
-            printf("%li\t", matriz[i][j]);
-        printf("\n");
+        for (j = 0; j < p; ++j) 
+        {
+            if (j == p-1)
+            {
+                printf("%li\n", matriz[i][j]); /*para ultimo elem*/
+            } else {
+                printf("%li\t", matriz[i][j]);
+            }
+        }
     }
 
     /*Liberacion menoria dinamica*/

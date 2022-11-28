@@ -3,45 +3,42 @@
 int main(int argc, char * argv[])
 {   
     FILE * fp = fopen(argv[1], "r");
-    float max = 0;
-    float min = 110;
+    float max = 0.00;
+    float min = 0.00;
     float aux;
-    char c = fgetc(fp);
+    int x = 0;
+    char c;
+    (void)argc;
 
     /*comprobamos que hay archivo para leer*/
-    if (argc < 2)
-    {   
-        return -1;
-    }
+    if (argv[1] == NULL) return -1;
 
     /*probamos a abrir el archivo*/
-    if (fp == NULL)
-    {
-        return -1;
-    }
+    if (fp == NULL) return -1;
 
     /*miramos si está vacio archivo vacio*/
+    c = fgetc(fp);
     if (c == EOF)
-    {
-        printf("%10.2f %10.2f", max, min);
-        return 1;
+    {   
+        printf("%10.2f%10.2f\n", max, min);
+        return 0;
     }
 
     rewind(fp);
     /*leer de un fichero y coger el numero maximo y minimo*/
     while (fscanf(fp, "%f", &aux) != EOF)
     {   
-        if (max < aux)
+        if (x == 0) /*inicializamos ambas variables al primer real del fich*/
         {
             max = aux;
-        }
-        if (aux < min)
-        {
             min = aux;
+            ++x;
         }
+        if (max < aux) max = aux;
+        if (aux < min) min = aux;
     }
 
-    printf("%10.2f %10.2f", max, min);
+    printf("%10.2f%10.2f\n", max, min);
     fclose(fp);
 
     return 0;
