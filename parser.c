@@ -43,6 +43,7 @@ int parser(FILE *file)
     /*imprimimos el resto de lineas*/
     while (fgets(linea2, MaxLinea, file))
     {
+        linea2[strcspn(linea2, "\n")] = 0;
         if (linea2[0] != c) /*solo entramos si hay contenido en la linea*/
         {
             tok = strtok(linea2, ",");
@@ -56,17 +57,16 @@ int parser(FILE *file)
                 }
                 else
                 {
-                    printf("%s: %s", campos[i], palabras[i]); /*formato para ultimo elem*/
+                    printf("%s: %s\n", campos[i], palabras[i]); /*formato para ultimo elem*/
                 }
                 i++;
                 tok = strtok(NULL, ",");
             }
         }
     }
-
+    
     return 0;
 }
-
 
 /*
 opcion de compilar descomentando este main: 
