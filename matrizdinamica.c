@@ -8,45 +8,27 @@ int main(int argc, char *argv[])
     long int **matriz;
     (void)argc;
 
-    m = atol(argv[1]); /*num filas*/
-    p = atol(argv[2]); /*num columnas*/
+    m = atoi(argv[1]); /*num filas*/
+    p = atoi(argv[2]); /*num columnas*/
 
     /*Memoria dinamica*/
-    matriz = (long int **)calloc(m, sizeof(int *));
-    if (matriz == NULL)
-        exit(71);
+    matriz = (long int **)calloc(m, sizeof(long int *));
+    if (matriz == NULL) exit(71);
     for (i = 0; i < m; ++i)
     {
-        matriz[i] = (long int *)calloc(p, sizeof(int *));
-        if (matriz == NULL)
-            exit(71);
+        matriz[i] = (long int *)calloc(p, sizeof(long int *));
+        if (matriz[i] == NULL) exit(71);
     }
 
     /*Asignacion valores*/
     for (i = 0; i < m; ++i)
-    {
         for (j = 0; j < p; ++j)
-        {
-            if (i == 0 || j == 0)
-                matriz[i][j] = 1;
-            else
-                matriz[i][j] = matriz[i - 1][j] + matriz[i][j - 1];
-        }
-    }
+            matriz[i][j] = (i == 0 || j == 0) ? 1 : matriz[i - 1][j] + matriz[i][j - 1];
 
     /*prints*/
     for (i = 0; i < m; ++i)
-    {
         for (j = 0; j < p; ++j) 
-        {
-            if (j == p-1)
-            {
-                printf("%li\n", matriz[i][j]); /*para ultimo elem*/
-            } else {
-                printf("%li\t", matriz[i][j]);
-            }
-        }
-    }
+            (j == p-1) ? printf("%li\n", matriz[i][j]) : printf("%li\t", matriz[i][j]); /*para ultimo elem : para el resto de elem*/
 
     /*Liberacion menoria dinamica*/
     for (i = 0; i < m; ++i)
