@@ -52,13 +52,9 @@ int parser(FILE *file)
             {
                 palabras[i] = tok;
                 if (i < nCampos - 1)
-                {
                     printf("%s: %s; ", campos[i], palabras[i]); /*formato elems*/
-                }
                 else
-                {
                     printf("%s: %s\n", campos[i], palabras[i]); /*formato para ultimo elem*/
-                }
                 i++;
                 tok = strtok(NULL, ",");
             }
