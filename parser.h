@@ -2,4 +2,4 @@
 #define MaxCampos 15
 
 
-int parser(FILE * file);
+int parser(FILE *file);
